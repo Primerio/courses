@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html lang="zxx">
+<%- include('inc/head')%>
+<body class="crm_body_bg">
+
+<section class="main_content dashboard_part large_header_bg" style="padding-left: 0;">
+    <div class="main_content_iner ">
+        <div class="container-fluid p-0">
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <div class="dashboard_header mb_50">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="dashboard_header_title">
+                                    <h3> Login</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="white_box mb_30">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-6">
+                                <div class="modal-content cs_modal">
+                                    <div class="modal-header justify-content-center theme_bg_1">
+                                        <h5 class="modal-title text_white">Log in</h5>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="/admin/login" method="post" multiple="multipart/form-data">
+                                            <div class="">
+                                                <input type="text" name="email" class="form-control" placeholder="Enter your email">
+                                            </div>
+                                            <div class="">
+                                                <input type="password" name="password" class="form-control" placeholder="Password">
+                                            </div>
+                                            <button class="btn_1 full_width text-center">Log in</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer_part">
+
+    </div>
+</section>
+
+
+<script src="js/jquery1-3.4.1.min.js"></script>
+
+<script src="js/popper1.min.js"></script>
+
+<script src="js/bootstrap1.min.js"></script>
+
+<script src="js/metisMenu.js"></script>
+
+<script src="vendors/scroll/perfect-scrollbar.min.js"></script>
+<script src="vendors/scroll/scrollable-custom.js"></script>
+
+<script src="js/custom.js"></script>
+</body>
+</html>

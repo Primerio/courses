@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('inc/head') %>
+
+<body class="crm_body_bg">
+
+<%- include('inc/aside') %>
+<section class="main_content dashboard_part large_header_bg">
+
+
+    <div class="main_content_iner ">
+
+            <div id="success-alert" class="alert text-white bg-success d-flex align-items-center justify-content-between" role="alert" style="visibility: hidden">
+                <div class="alert-text">Course added successfully</div>
+                <button type="button" class="btn-close hide-query" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+
+
+
+        <div class="container-fluid p-0 sm_padding_15px">
+            <form method="post" enctype="multipart/form-data" action="/admin/course">
+                <div class="row justify-content-sm-between">
+                    <div class="col-lg-8">
+                        <div class="white_card card_height_100 mb_30">
+                            <div class="white_card_header">
+                                <div class="box_header m-0">
+                                    <div class="main-title">
+                                        <h3 class="m-0">Add event</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="white_card_body">
+                                <div class="card-body">
+
+                                    <div class="row mb-3">
+                                        <div class="col-md-12">
+                                            <label class="form-label">Title</label>
+                                            <input type="text" class="form-control" placeholder="Title"
+                                                   name="title">
+                                        </div>
+                                        <div class="mt-3 col-md-3">
+                                            <label class="form-label">Start date</label>
+                                            <input type="date" class="form-control"
+                                                   name="eventStart">
+                                        </div>
+                                        <div class="mt-3 col-md-3">
+                                            <label class="form-label">Start time</label>
+                                            <input type="time" class="form-control"
+                                                   name="eventStartTime">
+                                        </div>
+                                        <div class="mt-3 col-md-3">
+                                            <label class="form-label">End date</label>
+                                            <input type="date" class="form-control" name="eventEnd">
+                                        </div>
+                                        <div class="mt-3 col-md-3">
+                                            <label class="form-label">End time</label>
+                                            <input type="time" class="form-control"
+                                                   name="eventEndTime">
+                                        </div>
+                                        <div class="mt-3 col-md-6">
+                                            <label class="form-label">Address</label>
+                                            <input type="text" class="form-control"
+                                                   placeholder="1234 Main St" name="address">
+                                        </div>
+                                        <div class="mt-3 col-md-6">
+                                            <label class="form-label">Course web site</label>
+                                            <input type="text" class="form-control"
+                                                   placeholder="Web site" name="eventUrl">
+                                        </div>
+                                        <div class="mt-3 col-md-6">
+                                            <label class="form-label">City</label>
+                                            <input type="text" class="form-control"
+                                                   placeholder="Lviv" name="city">
+                                        </div>
+                                        <div class="mt-3 col-md-6">
+                                            <label class="form-label">Type</label>
+                                            <select class="form-select" name="type">
+                                                <option value="online">Online</option>
+                                                <option value="offline">Offline</option>
+                                            </select>
+                                        </div>
+                                        <div class="mt-3 col-md-6">
+                                            <label class="form-label">Phone</label>
+                                            <input type="text" class="form-control"
+                                                   placeholder="Phone" name="phone">
+                                        </div>
+                                        <div class="mt-3 col-md-6">
+                                            <label class="form-label">Email</label>
+                                            <input type="text" class="form-control"
+                                                   placeholder="Email" name="email">
+                                        </div>
+                                        <div class="mt-3 col-md-6">
+                                            <label class="form-label">Price</label>
+                                            <input type="text" class="form-control"
+                                                   placeholder="Price" name="price">
+                                        </div>
+                                        <div class="mt-3 col-md-6">
+                                            <label class="form-label">Certificate</label>
+                                            <select class="form-select" name="certificate">
+                                                <option value="yes">Yes</option>
+                                                <option value="no">No</option>
+                                            </select>
+                                        </div>
+                                        <div class="mt-3 col-md-12">
+                                            <label class="form-label">Content</label>
+                                            <textarea name="content" cols="30" rows="10"
+                                                      class="form-control"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Add course</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="white_card card_height_100 mb_30">
+                            <div class="white_card_header">
+                                <div class="box_header m-0">
+                                    <div class="main-title">
+                                        <h3 class="m-0">Course image</h3>
+                                        <div class="mt-3 col-md-12">
+                                            <label class="form-label">Image</label>
+                                            <input type="file" class="form-control"
+                                                   placeholder="Price" name="image">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="white_card_header">
+                                <div class="box_header m-0">
+                                    <div class="main-title">
+                                        <h3 class="mb-3">Select category</h3>
+                                        <div class="col-sm-12">
+                                            <% data.categories.forEach(c => { %>
+                                                <div class="form-check">
+                                                    <input name="category" value="<%= c._id %>" class="form-check-input"
+                                                           type="radio" id="<%= c._id %>"
+                                                           data-category-title="<%= c.title %>"
+                                                           data-category-slug="<%= c.slug %>">
+                                                    <label class="form-label form-check-label" for="<%= c._id %>">
+                                                        <%= c.title %>
+                                                    </label>
+                                                </div>
+                                            <% }) %>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+</section>
+<script>
+    function getGet(name) {
+        let s = window.location.search;
+        s = s.match(new RegExp(name + '=([^&=]+)'));
+        return s ? s[1] : false;
+    }
+    let result = getGet('result')
+    if (result === 'ok') {
+        document.getElementById('success-alert').style.visibility = 'visible'
+    }
+    document.querySelector('.hide-query').onclick = () => {
+        window.location = location.protocol + '//' + location.host + location.pathname
+    }
+</script>
+<%- include('inc/footer') %>
+</body>
+</html>
