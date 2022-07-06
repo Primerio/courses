@@ -3,4 +3,5 @@ export async function homePage(req, res) {
 }
 export async function allCourses(req, res) {
     console.log(req)
+    console.log(res)
 }
